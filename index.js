@@ -1,5 +1,5 @@
 const form = document.forms.registrationForm;
-const btn = document.getElementById('submitForm');
+const submitButton = document.getElementById('submitForm');
 const userName = form.elements.name;
 const email = form.elements.email;
 const age = form.elements.age;
@@ -64,9 +64,8 @@ form.addEventListener('submit', function(evt){
         hasError = true;
     }
     if (hasError === false)
-   btn.disabled === false;
+    submitButton.removeAttribute('disabled');
     console.log (userName.value, email.value, age.value, gender.value, select.value);
-    
     form.reset()
 })
 
@@ -74,3 +73,4 @@ function validateEmail(email) {
     let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$/;
     return regex.test(email);
 }
+
