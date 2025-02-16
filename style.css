@@ -17,7 +17,7 @@ body{
     background-color: blanchedalmond;
 }
 
-#gender{
+.gender{
     margin: 10px 0;
 }
 
@@ -26,6 +26,11 @@ form{
     flex-direction: column;
     gap: 20px;
     padding: 5%;
+}
+
+.form-group{
+    display:flex;
+    flex-direction: column;
 }
 
 fieldset{
@@ -55,3 +60,8 @@ button:active{
     transform: scale(1.1);
     background-color: aquamarine;
 }
+
+.errorMessage{
+    color: red;
+}
+
