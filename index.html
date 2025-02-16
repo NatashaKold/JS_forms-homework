@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Форма регистрации</h1>
+    <fieldset class="general_frame">
+        <form action="">
+        <input type="text" name="name" id="name" placeholder="Введите имя" minlength="2" maxlength="20" pattern="^[a-zA-Z ]+$"required>
+        <input type="email" name="email" id="email" placeholder="Введите email" required>
+        <input type="num" min="1" max="150" placeholder="Введите возраст" required>
+        <fieldset class="gender_frame">
+            <legend class="gender-legend">Ваш пол</legend>
+                <input type="radio" name="gender" id="gender" class="genderM"> Мужчина<br/>
+                <input type="radio" name="gender" id="gender" class="genderF"> Женщина
+        </fieldset>
+        <select name="jobSelect" id="jobSelect" required>
+            <option value="" disabled selected>Выберете один из вариантов</option>
+            <option value="option1">Врач</option>
+            <option value="option2">Программист</option>
+            <option value="option3">Учитель</option>
+            <option value="option4">Дизайнер</option>
+            <option value="option5">Инженер</option>
+            <option value="option6">Продавец</option>
+            <option value="option7">Другое</option>
+        </select>
+        <input type="password" name="password" id="password" minlength="8" placeholder="Введите пароль" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" required>
+        <div class="agree-container">
+            <input type="checkbox" name="agree" id="agree" required> Я согласен(на) с обработкой данных
+        </div> 
+        <button type="button" name="submitForm" id="submitForm">Отправить</button>
+        </form>
+    </fieldset>
+
+<script src="index.js"></script>    
+</body>
+</html>
