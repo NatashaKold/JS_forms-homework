@@ -24,11 +24,11 @@ form.addEventListener('submit', function(evt){
     emailError.style.display = 'none';
     ageError.style.display = 'none';
     genderSelectError.style.display = 'none';
-    jobSelectError.style.diplay = 'none';
+    jobSelectError.style.display = 'none';
     passwordError.style.display ='none';
     agreeError.style.display = 'none';
 
-    if(userName.value=''){
+    if(userName.value===''){
         userNameError.textContent =' Необходимо заполнить поле';
         userNameError.style.display ='block';
         hasError = true;
@@ -43,12 +43,12 @@ form.addEventListener('submit', function(evt){
         ageError.style.display = 'block';
         hasError = true;
     }
-    if(gender.checked === false){
+    if(document.querySelector('input[name="gender"]:checked') === false){
         genderSelectError.textContent=' Необходимо выбрать один из вариантов';
         genderSelectError.style.display = 'block';
         hasError = true;
     }
-    if(select.checked === false){
+    if(select.value === ''){
         jobSelectError.textContent=' Необходимо выбрать один из вариантов';
         jobSelectError.style.diplay = 'block';
         hasError = true;
@@ -73,4 +73,74 @@ function validateEmail(email) {
     let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$/;
     return regex.test(email);
 }
+
+// function validateForm() {
+//     let hasError = false;
+//     userNameError.style.display = 'none';
+//     emailError.style.display = 'none';
+//     ageError.style.display = 'none';
+//     genderSelectError.style.display = 'none';
+//     jobSelectError.style.display = 'none';
+//     passwordError.style.display = 'none';
+//     agreeError.style.display = 'none';
+//     if (userName.value === '') {
+//         userNameError.textContent = 'Необходимо заполнить поле';
+//         userNameError.style.display = 'block';
+//         hasError = true;
+//     }
+//     if (!validateEmail(email.value)) {
+//         emailError.textContent = 'Введите корректный email';
+//         emailError.style.display = 'block';
+//         hasError = true;
+//     }
+//     if (age.value === '') {
+//         ageError.textContent = 'Необходимо заполнить поле';
+//         ageError.style.display = 'block';
+//         hasError = true;
+//     }
+//     if (!document.querySelector('input[name="gender"]:checked')) {
+//         genderSelectError.textContent = 'Необходимо выбрать один из вариантов';
+//         genderSelectError.style.display = 'block';
+//         hasError = true;
+//     }
+//     if (select.value === '') {
+//         jobSelectError.textContent = 'Необходимо выбрать один из вариантов';
+//         jobSelectError.style.display = 'block';
+//         hasError = true;
+//     }
+//     if (password.value === '') {
+//         passwordError.textContent = 'Необходимо заполнить поле';
+//         passwordError.style.display = 'block';
+//         hasError = true;
+//     } else if (!password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)) {
+//         passwordError.textContent = 'Пароль должен содержать минимум 8 символов, включая заглавную, строчную буквы и цифру';
+//         passwordError.style.display = 'block';
+//         hasError = true;
+//     }
+//     if (!agree.checked) {
+//         agreeError.textContent = 'Необходимо Ваше согласие';
+//         agreeError.style.display = 'block';
+//         hasError = true;
+//     }
+
+//     // Активация кнопки, если нет ошибок
+//     submitButton.disabled = hasError;
+// }
+// // Вешаем обработчики событий на инпуты
+// form.addEventListener('input', validateForm);
+
+// form.addEventListener('submit', function (evt) {
+//     evt.preventDefault();
+//     validateForm(); // Проверка перед отправкой
+
+//     if (!submitButton.disabled) {
+//         console.log(userName.value, email.value, age.value, gender.value, select.value);
+//         form.reset();
+//         submitButton.disabled = true; // Делаем кнопку снова неактивной после отправки
+//     }
+// });
+// function validateEmail(email) {
+//     let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+//     return regex.test(email);
+// }
 
