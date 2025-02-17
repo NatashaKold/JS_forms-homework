@@ -123,20 +123,19 @@ function validateEmail(email) {
 //         hasError = true;
 //     }
 
-//     // Активация кнопки, если нет ошибок
 //     submitButton.disabled = hasError;
 // }
-// // Вешаем обработчики событий на инпуты
+
 // form.addEventListener('input', validateForm);
 
 // form.addEventListener('submit', function (evt) {
 //     evt.preventDefault();
-//     validateForm(); // Проверка перед отправкой
+//     validateForm(); 
 
 //     if (!submitButton.disabled) {
 //         console.log(userName.value, email.value, age.value, gender.value, select.value);
 //         form.reset();
-//         submitButton.disabled = true; // Делаем кнопку снова неактивной после отправки
+//         submitButton.disabled = true; 
 //     }
 // });
 // function validateEmail(email) {
