@@ -13,133 +13,64 @@ let ageError = document.getElementById('ageError');
 let genderSelectError = document.getElementById('genderSelectError');
 let jobSelectError = document.getElementById('jobSelectError');
 let passwordError = document.getElementById('passwordError');
-let agreeError = document.getElementById('agreeError ');
+let agreeError = document.getElementById('agreeError');
 
 
-// form.addEventListener('submit', function(evt){
-//     evt.preventDefault();
-//     let hasError = false;
-
-//     userNameError.style.display ='none';
-//     emailError.style.display = 'none';
-//     ageError.style.display = 'none';
-//     genderSelectError.style.display = 'none';
-//     jobSelectError.style.display = 'none';
-//     passwordError.style.display ='none';
-//     agreeError.style.display = 'none';
-
-//     if(userName.value===''){
-//         userNameError.textContent =' Необходимо заполнить поле';
-//         userNameError.style.display ='block';
-//         hasError = true;
-//     }
-//     if(validateEmail(email.value) === false){
-//         emailError.textContent=' Необходимо заполнить поле';
-//         emailError.style.display = 'block';
-//         hasError = true;
-//     }
-//     if(age.value===''){
-//         ageError.textContent=' Необходимо заполнить поле';
-//         ageError.style.display = 'block';
-//         hasError = true;
-//     }
-//     if(document.querySelector('input[name="gender"]:checked') === false){
-//         genderSelectError.textContent=' Необходимо выбрать один из вариантов';
-//         genderSelectError.style.display = 'block';
-//         hasError = true;
-//     }
-//     if(select.value === ''){
-//         jobSelectError.textContent=' Необходимо выбрать один из вариантов';
-//         jobSelectError.style.diplay = 'block';
-//         hasError = true;
-//     }
-//     if(password.value===''){
-//         passwordError.textContent=' Необходимо заполнить поле';
-//         passwordError.style.display ='block';
-//         hasError = true;
-//     }
-//     if(agree.checked=== false){
-//         agreeError.textContent='  Необходимо Ваше согласие';
-//         agreeError.style.display = 'block';
-//         hasError = true;
-//     }
-//     if (hasError === false)
-//     submitButton.removeAttribute('disabled');
-//     console.log (userName.value, email.value, age.value, gender.value, select.value);
-//     form.reset()
-// })
-
-// function validateEmail(email) {
-//     let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$/;
-//     return regex.test(email);
-// }
-
-function validateForm() {
+form.addEventListener('submit', function(evt){
+    evt.preventDefault();
     let hasError = false;
-    userNameError.style.display = 'none';
+
+    userNameError.style.display ='none';
     emailError.style.display = 'none';
     ageError.style.display = 'none';
     genderSelectError.style.display = 'none';
     jobSelectError.style.display = 'none';
-    passwordError.style.display = 'none';
+    passwordError.style.display ='none';
     agreeError.style.display = 'none';
-    if (userName.value === '') {
-        userNameError.textContent = 'Необходимо заполнить поле';
-        userNameError.style.display = 'block';
+
+    if(userName.value===''){
+        userNameError.textContent =' Необходимо заполнить поле';
+        userNameError.style.display ='block';
         hasError = true;
     }
-    if (!validateEmail(email.value)) {
-        emailError.textContent = 'Введите корректный email';
+    if(validateEmail(email.value) === false){
+        emailError.textContent=' Необходимо заполнить поле';
         emailError.style.display = 'block';
         hasError = true;
     }
-    if (age.value === '') {
-        ageError.textContent = 'Необходимо заполнить поле';
+    if(age.value===''){
+        ageError.textContent=' Необходимо заполнить поле';
         ageError.style.display = 'block';
         hasError = true;
     }
-    if (!document.querySelector('input[name="gender"]:checked')) {
-        genderSelectError.textContent = 'Необходимо выбрать один из вариантов';
+    if(!document.querySelector('input[name="gender"]:checked')){
+        genderSelectError.textContent=' Необходимо выбрать один из вариантов';
         genderSelectError.style.display = 'block';
         hasError = true;
     }
-    if (select.value === '') {
-        jobSelectError.textContent = 'Необходимо выбрать один из вариантов';
+    if(select.value === ''){
+        jobSelectError.textContent=' Необходимо выбрать один из вариантов';
         jobSelectError.style.display = 'block';
         hasError = true;
     }
-    if (password.value === '') {
-        passwordError.textContent = 'Необходимо заполнить поле';
-        passwordError.style.display = 'block';
-        hasError = true;
-    } else if (!password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)) {
-        passwordError.textContent = 'Пароль должен содержать минимум 8 символов, включая заглавную, строчную буквы и цифру';
-        passwordError.style.display = 'block';
+    if(password.value===''){
+        passwordError.textContent=' Необходимо заполнить поле';
+        passwordError.style.display ='block';
         hasError = true;
     }
-    if (!agree.checked) {
-        agreeError.textContent = 'Необходимо Ваше согласие';
+    if(agree.checked=== false){
+        agreeError.textContent='  Необходимо Ваше согласие';
         agreeError.style.display = 'block';
         hasError = true;
     }
-
-    submitButton.disabled = hasError;
-}
-
-form.addEventListener('input', validateForm);
-
-form.addEventListener('submit', function (evt) {
-    evt.preventDefault();
-    validateForm(); 
-
-    if (!submitButton.disabled) {
-        console.log(userName.value, email.value, age.value, gender.value, select.value);
+    if (!hasError){
+        console.log (userName.value, email.value, age.value, gender.value, select.value);
         form.reset();
-        submitButton.disabled = true; 
+        submitButton.disabled = true;
     }
-});
+})
+
 function validateEmail(email) {
     let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return regex.test(email);
 }
-
