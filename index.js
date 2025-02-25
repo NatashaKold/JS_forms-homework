@@ -33,7 +33,7 @@ form.addEventListener('submit', function(evt){
         userNameError.style.display ='block';
         hasError = true;
     }
-    if(validateEmail(email.value) === false){
+    if(!validateEmail(email.value)){
         emailError.textContent=' Необходимо заполнить поле';
         emailError.style.display = 'block';
         hasError = true;
